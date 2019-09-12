@@ -18,7 +18,7 @@ function findIngredients(id) {
         .join('recipe_ingredients as ri', 'r.id', '=', 'ri.recipe_id')
         .join('ingredients as i', 'ri.ingredient_id', 'i.id')
         .where({ recipe_id : id })
-        .select('i.ingredient_name')
+        .select('i.ingredient_name', 'ri.quantity')
         .then(recipe => {
             return recipe;
         });
